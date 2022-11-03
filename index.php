@@ -14,7 +14,11 @@
                 <h1 class="h3 mb-3 fw-normal">Iniciar Sesión</h1>
                 <div class="form-floating">
                     <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
-                    <label for="email">Correo Electronico</label>
+                    <label for="email">Correo Electrónico</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="invite" class="form-control" name="invite" id="invite" placeholder="123456">
+                    <label for="invite">Código Acceso</label>
                 </div>
                 <button class="w-100 btn btn-lg btn-primary mt-5" type="submit">Ingresar</button>
             </form>
