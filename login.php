@@ -11,7 +11,7 @@
         <div class="container mt-5">
             <nav class="navbar navbar-light bg-light">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">CHRISTUS</a>
+                    <a class="navbar-brand" href="#">UC CHRISTUS</a>
                     <div class="d-flex">
                         <button class="btn btn-outline-success" type="submit">Cerrar</button>
                     </div>
