@@ -11,9 +11,9 @@
         <div class="container mt-5">
             <nav class="navbar navbar-light bg-light">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">UC CHRISTUS</a>
+                    <a class="navbar-brand" href="index.php">UC CHRISTUS</a>
                     <div class="d-flex">
-                        <button class="btn btn-outline-success" type="submit">Cerrar</button>
+                        <a href="index.php" class="btn btn-outline-success" type="submit">Cerrar</a>
                     </div>
                 </div>
             </nav>
@@ -22,87 +22,21 @@
         <?php 
             $email = $_REQUEST['email'];
             $invite = $_REQUEST['invite'];
-            $detalles = 4;
-            $rol = 1;
-            // exit;
+        
         ?>
-        <?php if ($rol == 0) : ?>
-            <div class="container">
-                <?php if (count($detalles) == 0) : ?>
-                    <br>
-                    <p>No se encontraron registros.</p>
-                <?php else: ?>
-                    <table class="container table mt-5 ">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                <?php endif; ?>
-            </div>
-        <?php else: ?>
-            <div class="container">
-                <?php if (count($detalles) == 0) : ?>
-                    <br>
-                    <p>No se encontraron registros.</p>
-                <?php else: ?>
-                    <table class="table caption-top">
-                        <caption>Lista de varios captadores</caption>
-                        <thead class="table-dark">
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                <?php endif; ?>
-            </div>
-        <?php endif; ?>
+        <?php 
+            if ($email == 'admin@gmail.com' && $invite == 'admin') {
+                header("location:admin.php");
+            } else if ($email == 'cabeza@gmail.com' && $invite == 'cabeza') {
+                header("location:cabeza.php");
+            } else if ($email == 'colaborador@gmail.com' && $invite == 'colaborador') {
+                header("location:colaborador.php");
+            } else {
+                header("location:error.php");
+            }
+
+        ?>
+  
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     </body>
 </html>
