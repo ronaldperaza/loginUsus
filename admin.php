@@ -62,7 +62,7 @@
     </body>
     <script>
         async function peticionGet(){
-            const res = await fetch('https://ucchristus.payku.net/uccristus/consulta_ranking.php');
+            const res = await fetch('https://fundacionucchristus.payku.net/uccristus/consulta_ranking.php');
             console.log(res);
             const data = await res.json();
             console.log(data);
