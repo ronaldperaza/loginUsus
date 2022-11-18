@@ -24,40 +24,33 @@
             $detalles = 4;
         ?>
        
-        
-        <div class="container">
+       
+       <div class="container">
+            <div id="totalDiv">Monto total Recaudado:
+                <p id="total"> </p> 
+            </div>
             <?php if (count($detalles) == 0) : ?>
                 <br>
                 <p>No se encontraron registros.</p>
             <?php else: ?>
                 <table class="container table caption-top mt-5 ">
-                    <caption>Lista de varios captadores</caption>
+                    
                     <thead class="table-dark">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Cargo</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Monto Total</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                   
+                        <tr id="demo">
+                          
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                      
                     </tbody>
                 </table>
             <?php endif; ?>
@@ -67,4 +60,33 @@
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     </body>
+    <script>
+        async function peticionGet(){
+            const res = await fetch('https://ucchristus.payku.net/uccristus/consulta_ranking.php');
+            console.log(res);
+            const data = await res.json();
+            console.log(data);
+            console.log(data.length)
+            let text = "";
+            let cont = 0;
+            for (let i = 0; i < data.length; i++) {
+            cont++;
+            text += "<tr><th scope='row'>"+ cont + "</th><td>" + data[i]['nombre'] +"</td><td>" + data[i]['email'] +"</td><td>" + data[i]['cargo'] +"</td><td>" + data[i]['total'] +"</td><td>" + data[i]['montototal']+"</td></tr>";
+           
+            }
+            document.querySelector("#demo").innerHTML = text;
+        }
+        window.onload=peticionGet();
+    </script>
+    <script>
+        async function peticionGetContador(){
+            const res = await fetch('https://ucchristus.payku.net/uccristus/callback_contador.php');
+            console.log(res);
+            const data = await res.json();
+            console.log(data);
+            console.log(data.length)
+            document.querySelector('#total').innerText = data;
+        }
+        window.onload=peticionGetContador();
+    </script>
 </html>

@@ -21,7 +21,7 @@
         </div>
           <?php 
            
-            $detalles = 4;
+            
         ?>
          <div class="container">
             <?php if (count($detalles) == 0) : ?>
@@ -32,10 +32,10 @@
                     <caption>Lista de varios captadores</caption>
                     <thead class="table-dark">
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Cargo</th>
+                            <th scope="col">Código</th>
                         </tr>
                     </thead>
                     <tbody>
